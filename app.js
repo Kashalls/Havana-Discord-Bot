@@ -249,7 +249,7 @@ bot.on("messageCreate", async msg => {
         }
 
         // Run the command
-        await commands[i].execute(bot, msg, args, commands, logger);
+        await commands[i].execute(bot, msg, args, commands, logger, c, s);
         break;
       }
     }

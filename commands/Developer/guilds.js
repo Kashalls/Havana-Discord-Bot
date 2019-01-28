@@ -6,7 +6,7 @@ module.exports = {
   category: "Developer",
   permission: "sendMessages",
   botPermission: "attachFiles",
-  execute:async function(bot, msg, args){
+  execute:async (bot, msg, args, commands, logger, c, s) => {
     let guildInfo = bot.guilds.map(g => `"${g.name}": { 
     "MEMBER COUNT": "${g.memberCount}", 
     "GUILD ID": "${g.id}", 

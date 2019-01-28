@@ -5,7 +5,7 @@ module.exports = {
     category: "Fun",
     permission: "sendMessages",
     botPermission: "embedLinks",
-    execute:async function(bot, msg, args){
+    execute:async (bot, msg, args, commands, logger, c, s) => {
         let kittyhash = `https://robohash.org/${args[0]}?set=set4`
         if(!args[0]) kittyhash = `https://robohash.org/${msg.author.id}?set=set4`
         await msg.channel.createMessage({ embed: {color: 0x36393E, author: {name: 'A Unique Kitty!', icon_url: msg.author.avatarURL}, image: {url: kittyhash}}});

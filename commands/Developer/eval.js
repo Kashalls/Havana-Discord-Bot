@@ -5,7 +5,7 @@ module.exports = {
   category: "Developer",
   permission: "sendMessages",
   botPermission: "embedLinks",
-  execute:async function(bot, msg, args, commands, conn){
+  execute:async (bot, msg, args, commands, logger, c) => {
     String.prototype.charLimitSplit = number => {
       if(typeof number !== 'number') {
           number = parseInt(number);

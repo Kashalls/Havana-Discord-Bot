@@ -5,7 +5,7 @@ module.exports = {
     category: "Developer",
     permission: "sendMessages",
     botPermission: "sendMessages",
-    execute: async function(bot, msg, args) {
+    execute: async (bot, msg, args, commands, logger, c) => {
         if(msg.author.id !== "205912295837138944") return
         msg.channel.createMessage(`Sending the announcement to ${bot.guilds.size} guilds ... This process will take a while ...`);
         var blacklisted = ['110373943822540800', '330777295952543744', '112319935652298752', '293379346188599296', '338678403521576960', '264445053596991498'];

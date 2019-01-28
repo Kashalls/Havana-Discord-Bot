@@ -8,7 +8,7 @@ syntax: ")>female `|` )>female [Attachment | User Name | User ID | User Mention 
 category: "Image Manipulation",
 permission: "sendMessages",
 botPermission: "attachFiles",
-execute: async function(bot, msg, args) {
+execute:async (bot, msg, args, commands, logger, c, s) => {
     argHandler.handle(bot, msg, args, renderImage);
     async function renderImage(img) {
         let res = await superagent.get(img)

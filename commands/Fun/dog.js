@@ -6,7 +6,7 @@ module.exports = {
     category: "Fun",
     permission: "sendMessages",
     botPermission: "embedLinks",
-    execute:async function(bot, msg, args){
+    execute:async (bot, msg, args, commands, logger, c, s) => {
         snekfetch.get('http://random.dog/woof')
         .then(r => {
             let pupper = `http://random.dog/${r.body.toString()}`;

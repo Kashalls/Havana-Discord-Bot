@@ -6,7 +6,7 @@ module.exports = {
     category: "Fun",
     permission: "sendMessages",
     botPermission: "embedLinks",
-    execute:async function(bot, msg, args){
+    execute:async (bot, msg, args, commands, logger, c, s) => {
         snekfetch.get("https://www.reddit.com/r/dankmemes/top.json?limit=100&t=day").then(r => {
             let imageMemes = [];    
             for (i = 0; i < r.body.data.children.length; i++) {

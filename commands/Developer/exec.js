@@ -6,7 +6,7 @@ module.exports = {
   category: "Developer",
   permission: "sendMessages",
   botPermission: "sendMessages",
-  execute:async function(bot, msg, args){
+  execute:async (bot, msg, args, commands, logger, c, s) => {
     if (!args.join(" ")) return msg.channel.createMessage('No arguments were given');
     msg.channel.createMessage(`\`INPUT\`\n\`\`\`ini\n${args.join(" ")}\n\`\`\``);
     exec(args.join(" "), {shell: "/bin/bash"}, (error, stdout, stderr) => {

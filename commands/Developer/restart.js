@@ -5,7 +5,7 @@ module.exports = {
     category: "Developer",
     permission: "sendMessages",
     botPermission: "sendMessages",
-    execute:async function(bot, msg, args){
+    execute:async (bot, msg, args, commands, logger, c, s) => {
         msg.channel.createMessage('Restarting...').then(m => {
             process.exit()
         })

@@ -6,7 +6,7 @@ module.exports = {
     category: "Fun",
     permission: "sendMessages",
     botPermission: "manageWebhooks",
-    execute:async (bot, msg, args) => {
+    execute:async (bot, msg, args, commands, logger, c, s) => {
         if(!args[0] || args[0] === undefined) {
             return msg.channel.createMessage('Nothing for Clyde to say');
         } else {
