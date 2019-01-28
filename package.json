@@ -1,0 +1,37 @@
+{
+  "name": "havana-self-hostable",
+  "version": "0.7.0",
+  "description": "Multipurpose bot",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "multipurpose",
+    "havana",
+    "discord",
+    "bot"
+  ],
+  "author": "TannerReynolds",
+  "license": "ISC",
+  "dependencies": {
+    "eris": "^0.8.4",
+    "faceapp": "^0.3.3",
+    "fs-nextra": "^0.3.2",
+    "image-download": "^1.1.0",
+    "image-size": "^0.6.2",
+    "image-to-ascii": "^3.0.11",
+    "node-mscs-face": "^0.1.1",
+    "os-toolbox": "^0.2.9",
+    "qr-image": "^3.2.0",
+    "recursive-readdir": "^2.2.2",
+    "rethinkdbdash": "^2.3.31",
+    "retrotext": "^2.1.2",
+    "snekfetch": "^3.6.4",
+    "steamidconvert": "^0.2.4",
+    "superagent": "^3.8.2",
+    "tall": "^1.0.2",
+    "urban": "^0.3.1",
+    "what-dog": "^1.0.4"
+  }
+}

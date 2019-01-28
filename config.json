@@ -1,0 +1,43 @@
+{
+    "token":"Bot Token Goes Here",
+    "shardCount": number of shards here without quotes,
+    "devs":["Owner ID goes here"],
+    "havana": "Havana API server URL (use api.qoilo.com if not selfhosting image API)",
+    "steamToken": "Steam API Key",
+    "guildStatChannel": "Channel ID for the channel you want to log guild joins/leaves to",
+    "prefix": ")>",
+    "playing": "Type what game you want the bot to be playing on startup",
+    "cooldown": cooldown in milliseconds goes here without quotes,
+    "massCooldown": mass commands cooldown in milliseconds goes here without quotes,
+    "adblock": {
+        "enabled": true or false without quotes
+    },
+    "roleme": {
+        "enabled": true or false without quotes,
+        "roleNames": ["role name 1", "role name 2"] <-- These are case-sensitive,
+    },
+    "autoNick": {
+        "enabled": true or false without quotes,
+        "nickname": "nickname to be auto-applied"
+    },
+    "autoRole": {
+        "enabled": true or false without quotes,
+        "roleName": "Role name (case-sensitive)"
+    },
+    "linkBlocking": {
+        "enabled": true or false without quotes,
+        "channels": ["channel ID 1", "channel ID 2"]
+    },
+    "pollChannel": {
+        "enabled": true or false without quotes,
+        "channel": "channel ID here"
+    },
+    "modLogs": {
+        "enabled": true or false without quotes,
+        "channel": "channel ID here"
+    },
+    "welcomer": {
+        "enabled": true or false without quotes,
+        "channel": "channel ID"
+    }
+}
