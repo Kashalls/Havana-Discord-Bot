@@ -1,4 +1,3 @@
-const snekfetch = require("snekfetch");
 module.exports = {
     command: "github",
     description: "shows github page for Havana",
@@ -7,6 +6,6 @@ module.exports = {
     permission: "sendMessages",
     botPermission: "sendMessages",
     execute: async function(bot, msg, args) {
-        msg.channel.createMessage("Here is a link to Havana's Github: https://github.com/TannerReynolds/Havana")
+        msg.channel.createMessage("Here is a link to Havana's Github: https://github.com/TannerReynolds/Havana-Discord-Bot")
     }
 }
