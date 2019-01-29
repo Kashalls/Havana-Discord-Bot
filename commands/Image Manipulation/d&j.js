@@ -1,4 +1,4 @@
-const s = require("snekfetch")
+
 
 const argHandler = require("../../util/imgHandler.js")
 module.exports = {

@@ -11,7 +11,7 @@ module.exports = {
         argHandler.handle(bot, msg, args, renderImage);
         function renderImage(img) {
             msg.channel.createMessage("Loading...").then(m => {
-            snekfetch.get(`https://discord.services/api/magik?url=${img}`)
+            s.get(`https://discord.services/api/magik?url=${img}`)
                 .then(r => {
                     m.delete();
                     return msg.channel.createMessage("", {

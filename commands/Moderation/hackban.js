@@ -6,13 +6,13 @@ module.exports = {
     permission: "banMembers",
     botPermission: "banMembers",
     execute: async (bot, msg, args, commands, logger, c, s) => {
-        if(!args[0]) return msg.channel.createMessage("You need to choose somebody to hackban.")
+        if (!args[0]) return msg.channel.createMessage("You need to choose somebody to hackban.")
         try {
             let id = args[0];
             let reason
             args[1] ? reason = args.slice(1).join(" ") : reason = "No Reason Provided";
-            banUser(id, reason); 
-        } catch(e) {
+            banUser(id, reason);
+        } catch (e) {
             msg.channel.createMessage("Could not find this user");
         }
         async function banUser(id, reason) {

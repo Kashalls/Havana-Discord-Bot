@@ -1,4 +1,4 @@
-;
+
 module.exports = {
     command:"dog",
     description: "sends a picture of a dog!",
@@ -7,7 +7,7 @@ module.exports = {
     permission: "sendMessages",
     botPermission: "embedLinks",
     execute:async (bot, msg, args, commands, logger, c, s) => {
-        snekfetch.get("http://random.dog/woof")
+        s.get("http://random.dog/woof")
         .then(r => {
             let pupper = `http://random.dog/${r.body.toString()}`;
             return msg.channel.createMessage({ embed: {color: 0x36393E, author: {name: "A Wild Pupper Appears!", icon_url: msg.author.avatarURL}, image: {url: pupper}}});

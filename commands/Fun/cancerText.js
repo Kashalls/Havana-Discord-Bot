@@ -5,7 +5,7 @@ module.exports = {
     category: "Fun",
     permission: "sendMessages",
     botPermission: "sendMessages",
-    execute:async (bot, msg, args, commands, logger, c, s) => {
+    execute: async (bot, msg, args, commands, logger, conf, snek) => {
 
         let characters = args.join(" ").split("");
         let cancerCharacters = [];
