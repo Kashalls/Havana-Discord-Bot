@@ -18,9 +18,11 @@ let botInit = new Date(), pref = cmdPrefix, mentionPrefRegex = /<@(!)?4038549651
 / then pushes each file to the arrays below  */
 let commandLocations = [];
 let commands = [];
+if(c.debugMode) logger.verbose("Loading Commands")
 handler("./commands/", (err, files) => {
   for(i = 0; i < files.length; i++) {
       if(files[i].endsWith(".js")) {
+        if(c.debugMode) logger.verbose(`Loaded command: ${files[i]}`)
         let file = `./${files[i]}`
         delete require.cache[require.resolve(file)];
         commandLocations.push(file)
@@ -56,13 +58,14 @@ bot.on("guildCreate", guild => {
 }); 
 
 bot.on("guildDelete", guild => {
-    logger.success(`Guild Left. Now at ${bot.guilds.size}`);
+    logger.verbose(`Guild Left. Now at ${bot.guilds.size}`);
     guildStatus.update(bot,guild,false); // Sends guild leave log to monitor channel
 });
 
 bot.on("guildMemberAdd", async (guild, member) => {
+  if(c.debugMode) logger.verbose("Guild member Joined")
   if (c.modLogs.enabled === true) {
-    modlogs.memberJoin(bot, guild, member, c.modLogs.channel); // Sends mod log to guild's mod-log channel
+    modlogs.memberJoin(bot, guild, member, c.modLogs.channel); // Sends mod log to guild"s mod-log channel
   }
   if(c.welcomer.enabled === true) {
     //welcomer.generate(bot, guild, member, c.welcomer.channel); // Generating welcome message for new users
@@ -70,33 +73,37 @@ bot.on("guildMemberAdd", async (guild, member) => {
   if(c.autoRole.enabled === true) {
     roleID = guild.roles.filter(r => r.name === c.autoRole.roleName)[0].id;
     guild.addMemberRole(member.id, roleID).catch(e => {
-      return console.log(e)
+      return logger.error(e)
     });
   }
   if(c.autoNick.enabled === true) {
+    if(c.debugMode) logger.verbose("Applying autonickname")
     member.edit({nick: c.autoNick.nickname}).catch(e => {
-      return console.log(e);
+      return logger.error(e);
     })
   }
 }) 
 
 bot.on("guildMemberRemove", async (guild, member) => {
+  if(c.debugMode) logger.verbose("Guild Member Left")
   if (c.modLogs.enabled === true) {
     modlogs.memberLeave(bot, guild, member, c.modLogs.channel);
   }
 })
 
 bot.on("messageDelete", async msg => {
+  if(c.debugMode) logger.verbose("Message Deleted")
   if(c.modLogs.enabled === true) {
     modlogs.msgDeleteLog(bot, msg, c.modLogs.channel)
   }
 });
 
 bot.on("messageUpdate", async (msg, oldMsg) => {
-
+  if(c.debugMode) logger.verbose("Message Update")
   // Stop people from editing ads into their messages
   if(c.adblock.enabled === true) {
     if(msg.content.match(/\b(?:https?:\/\/)?discord(?:app)?\.(?:com\/invite\/|gg)+\/*([A-Za-z_0-9]+)/g)) {
+      if(c.debugMode) logger.verbose(`Found Ad in edited message: ${msg.content}`)
       let mod = msg.channel.permissionsOf(msg.author.id).has("banMembers");
       let canDelete = msg.channel.permissionsOf(bot.user.id).has("manageMessages");
       if(mod) return;
@@ -109,6 +116,7 @@ bot.on("messageUpdate", async (msg, oldMsg) => {
   if(c.linkBlocking.enabled === true) {
     if(c.linkBlocking.channels.includes(msg.channel.id)) {
       if(msg.content.match(/\bhttps?:\/\/\S+/i)) {
+        if(c.debugMode) logger.verbose(`Found Link in edited message: ${msg.content}`)
         let manageMessages = msg.channel.permissionsOf(bot.user.id).has("manageMessages");
         let moderator = msg.channel.permissionsOf(msg.author.id).has("banMembers")
         if(moderator) return;
@@ -122,12 +130,14 @@ bot.on("messageUpdate", async (msg, oldMsg) => {
 });
 
 bot.on("guildBanAdd", async (guild, user) => {
+  if(c.debugMode) logger.verbose("Guild Ban Added")
   if (c.modLogs.enabled === true) {
     modlogs.banAdd(bot, guild, user, c.modLogs.channel);
   }
 });
 
 bot.on("guildBanRemove", async (guild, user) => {
+  if(c.debugMode) logger.verbose("Guild Ban Removed")
   if (c.modLogs.enabled === true) {
     modlogs.banRemove(bot, guild, user, c.modLogs.channel);
   }
@@ -140,6 +150,7 @@ let othercmds = new Set();
 // Msg event
 bot.on("messageCreate", async msg => {
 
+  if(c.debugMode) logger.verbose(`Message Sent: ${msg.content}`)
   // Will not do anything if the author is a bot, or if the bot does not have perms to send messages
   if(msg.author.bot) return;
   let sendMessages = msg.channel.permissionsOf(bot.user.id).has("sendMessages");
@@ -149,14 +160,17 @@ bot.on("messageCreate", async msg => {
 
   // Checking to see if channel is a poll channel
   if(c.pollChannel.enabled === true && c.pollChannel.channel === msg.channel.id) {
+    if(c.debugMode) logger.verbose("PollChannel message sent")
     msg.addReaction("✅")
     msg.addReaction("❌")
+    if(c.debugMode) logger.verbose("Applied PollChannel reactions")
   }
 
   // Checking to see if channel has links blocked
   if(c.linkBlocking.enabled === true) {
     if(c.linkBlocking.channels.includes(msg.channel.id)) {
       if(msg.content.match(/\bhttps?:\/\/\S+/i)) {
+        if(c.debugMode) logger.verbose(`Link Detected With LinkBlock: ${msg.content}`)
         let manageMessages = msg.channel.permissionsOf(bot.user.id).has("manageMessages");
         let moderator = msg.channel.permissionsOf(msg.author.id).has("banMembers")
         if(moderator) return;
@@ -171,6 +185,7 @@ bot.on("messageCreate", async msg => {
   // Checking to see if ads are blocked for that guild
   if(c.adblock.enabled === true) {
     if(msg.content.match(/\b(?:https?:\/\/)?discord(?:app)?\.(?:com\/invite\/|gg)+\/*([A-Za-z_0-9]+)/g)) {
+      if(c.debugMode) logger.verbose(`Ad detected with adBlock: ${msg.content}`)
       let mod = msg.channel.permissionsOf(msg.author.id).has("banMembers");
       let canDelete = msg.channel.permissionsOf(bot.user.id).has("manageMessages");
       if(mod) return;
@@ -183,18 +198,21 @@ bot.on("messageCreate", async msg => {
 
   // Reload function for commands
   if(msg.content === `${pref}rl` && c.devs.includes(msg.author.id)) {
-      commandLocations = [];
-      commands = [];
-      handler("./commands/", (err, files) => {
-        for(i = 0; i < files.length; i++) {
-            if(files[i].endsWith(".js")) {
-              let file = `./${files[i]}`
-              delete require.cache[require.resolve(file)];
-              commandLocations.push(file)
-              commands.push(require(file))
-            }
+    if(c.debugMode) logger.verbose("Reloading Commands...")
+    commandLocations = [];
+    commands = [];
+    handler("./commands/", (err, files) => {
+      for(i = 0; i < files.length; i++) {
+        if(files[i].endsWith(".js")) {
+          let file = `./${files[i]}`
+          if(c.debugMode) logger.verbose(`Command Loaded: ${file[i]}`)
+          delete require.cache[require.resolve(file)];
+          commandLocations.push(file)
+          commands.push(require(file))
         }
+      }
     })
+    if(c.debugMode) logger.verbose("Commands Reloaded")
     return msg.channel.createMessage("Reloaded Commands")
   }
 
@@ -218,6 +236,7 @@ bot.on("messageCreate", async msg => {
     // Defining args and command
     const args = msg.content.slice(thePrefix.length).trim().split(/ +/g);
     const command = args.shift().toString().toLowerCase();
+    if(c.debugMode) logger.verbose(`Command Ran: ${command}`)
 
     // Cycling through commands to find a match
     for(i=0;commands.length>i;i++){
@@ -232,6 +251,7 @@ bot.on("messageCreate", async msg => {
         
         // if command is a mass command to add/remove/respond to cooldown. Mass cooldown is an hour
         if(commands[i].command.startsWith("mass")) {
+          if(c.debugMode) logger.verbose("Mass Command Ran")
           if(masscmds.has(msg.author.id)) {
             cooldown = c.massCooldown
             return msg.channel.createMessage("Please wait before running another `mass` command")
@@ -240,6 +260,7 @@ bot.on("messageCreate", async msg => {
             setTimeout(() => masscmds.delete(msg.author.id), c.massCooldown);
           }
         } else { // Otherwise use the default cooldown of 3 second
+          if(c.debugMode) logger.verbose("Regular Command Ran")
           if(othercmds.has(msg.author.id)) {
             return msg.channel.createMessage("Please wait before running another command")
           } else {
@@ -249,7 +270,7 @@ bot.on("messageCreate", async msg => {
         }
 
         // Run the command
-        await commands[i].execute(bot, msg, args, commands, logger);
+        await commands[i].execute(bot, msg, args, commands, logger, c, s);
         break;
       }
     }

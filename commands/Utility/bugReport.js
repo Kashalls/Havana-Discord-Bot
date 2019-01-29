@@ -5,7 +5,7 @@ module.exports = {
   category: "Utility",
   permission: "sendMessages",
   botPermission: "sendMessages",
-  execute:async function(bot, msg, args){
+  execute:async (bot, msg, args, commands, logger, c, s) => {
     await msg.channel.createMessage("All bug reports are now reported on our Github page: https://github.com/TannerReynolds/Havana-Discord-Bot/issues")
   }
 }

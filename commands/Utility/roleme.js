@@ -1,4 +1,4 @@
-const c = require("../../config.json")
+
 module.exports = {
     command:"roleme",
     description: "get an available role from the list",

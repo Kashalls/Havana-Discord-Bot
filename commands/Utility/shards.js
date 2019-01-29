@@ -5,7 +5,7 @@ module.exports = {
     category: "Utility",
     permission: "sendMessages",
     botPermission: "sendMessages",
-    execute:async function(bot, msg, args){
+    execute:async (bot, msg, args, commands, logger, c, s) => {
       await msg.channel.createMessage("Getting Shards...")
       .then((message)=>{
         let shardMap = bot.shards.map(s => `= [ID]: ${s.id} | [Ping]: ${s.latency} | [Status]: ${s.status} =`).join("\n");

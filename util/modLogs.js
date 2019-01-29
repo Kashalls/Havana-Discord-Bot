@@ -1,17 +1,17 @@
 module.exports = {
     msgDeleteLog:async (bot, msg, channelID) => {
-        if(!msg.author.avatarURL) msg.author.avatarURL = 'https://s3.amazonaws.com/files.enjin.com/292623/Web_Dev/images/discord-icon-7.png'
+        if(!msg.author.avatarURL) msg.author.avatarURL = "https://s3.amazonaws.com/files.enjin.com/292623/Web_Dev/images/discord-icon-7.png"
         bot.createMessage(channelID, {embed: {
             color: 0x36393E,
             author: {name: `${msg.author.username}#${msg.author.discriminator} | ID: ${msg.author.id}`, icon_url: msg.author.avatarURL},
             fields: [
-                {name: 'Message Deleted', value: `\`\`\`\n${msg.content}\n\`\`\``},
+                {name: "Message Deleted", value: `\`\`\`\n${msg.content}\n\`\`\``},
                 {name: "Channel", value: msg.channel.name}
             ]
         }})
     },
     memberJoin:async (bot, guild, member, channelID) => {
-        if(!member.avatarURL) member.avatarURL = 'https://s3.amazonaws.com/files.enjin.com/292623/Web_Dev/images/discord-icon-7.png'
+        if(!member.avatarURL) member.avatarURL = "https://s3.amazonaws.com/files.enjin.com/292623/Web_Dev/images/discord-icon-7.png"
         bot.createMessage(channelID, {embed: {
             color: 0x36393E,
             title: "Member Join",
@@ -19,7 +19,7 @@ module.exports = {
         }})
     },
     memberLeave:async (bot, guild, member, channelID) => {
-        if(!member.avatarURL) member.avatarURL = 'https://s3.amazonaws.com/files.enjin.com/292623/Web_Dev/images/discord-icon-7.png'
+        if(!member.avatarURL) member.avatarURL = "https://s3.amazonaws.com/files.enjin.com/292623/Web_Dev/images/discord-icon-7.png"
         bot.createMessage(channelID, {embed: {
             color: 0x36393E,
             title: "Member Leave",

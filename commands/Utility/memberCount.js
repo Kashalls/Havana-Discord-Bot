@@ -5,7 +5,7 @@ module.exports = {
     category: "Utility",
     permission: "sendMessages",
     botPermission: "embedLinks",
-    execute:async function(bot, msg, args, commands){
+    execute:async (bot, msg, args, commands, logger, c, s) => {
         if(!msg.channel.guild) return;
         let guild = msg.channel.guild;
         let icon

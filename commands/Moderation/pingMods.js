@@ -5,11 +5,11 @@ module.exports = {
     category: "Moderation",
     permission: "sendMessages",
     botPermission: "sendMessages",
-    execute:async function(bot, msg, args){
+    execute:async (bot, msg, args, commands, logger, c, s) => {
         let staff = [];
         msg.channel.guild.members.filter(m => {
-            let kickMembers = msg.channel.permissionsOf(m.id).has('kickMembers');
-            let banMembers = msg.channel.permissionsOf(m.id).has('banMembers');
+            let kickMembers = msg.channel.permissionsOf(m.id).has("kickMembers");
+            let banMembers = msg.channel.permissionsOf(m.id).has("banMembers");
             if(kickMembers || banMembers) {
                 if(m.status === "online" && m.bot === false) {
                     staff.push(`<@${m.id}>`);

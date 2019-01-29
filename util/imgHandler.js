@@ -36,7 +36,7 @@ module.exports = {
                     return renderImage(avi)
                 }
             } catch (e) {
-                return msg.channel.createMessage('No image inputted');
+                return msg.channel.createMessage("No image inputted");
             }
         }
     }

@@ -5,9 +5,9 @@ module.exports = {
     category: "Fun",
     permission: "sendMessages",
     botPermission: "sendMessages",
-    execute: async function(bot, msg, args) {
+    execute:async (bot, msg, args, commands, logger, c, s) => {
 
-        let characters = args.join(' ').split('');
+        let characters = args.join(" ").split("");
         let cancerCharacters = [];
 
         let a = "𝒶",
@@ -64,115 +64,115 @@ module.exports = {
             Z = "𝒵";
 
 
-        for (var ii = 0, len = characters.length; ii < len; ii++) {
-            if (characters[ii] === 'a') {
+        for (let ii = 0, len = characters.length; ii < len; ii++) {
+            if (characters[ii] === "a") {
                 cancerCharacters.push(a)
-            } else if (characters[ii] === 'b') {
+            } else if (characters[ii] === "b") {
                 cancerCharacters.push(b)
-            } else if (characters[ii] === 'c') {
+            } else if (characters[ii] === "c") {
                 cancerCharacters.push(c)
-            } else if (characters[ii] === 'd') {
+            } else if (characters[ii] === "d") {
                 cancerCharacters.push(d)
-            } else if (characters[ii] === 'e') {
+            } else if (characters[ii] === "e") {
                 cancerCharacters.push(e)
-            } else if (characters[ii] === 'f') {
+            } else if (characters[ii] === "f") {
                 cancerCharacters.push(f)
-            } else if (characters[ii] === 'g') {
+            } else if (characters[ii] === "g") {
                 cancerCharacters.push(g)
-            } else if (characters[ii] === 'h') {
+            } else if (characters[ii] === "h") {
                 cancerCharacters.push(h)
-            } else if (characters[ii] === 'i') {
+            } else if (characters[ii] === "i") {
                 cancerCharacters.push(i)
-            } else if (characters[ii] === 'j') {
+            } else if (characters[ii] === "j") {
                 cancerCharacters.push(j)
-            } else if (characters[ii] === 'k') {
+            } else if (characters[ii] === "k") {
                 cancerCharacters.push(k)
-            } else if (characters[ii] === 'l') {
+            } else if (characters[ii] === "l") {
                 cancerCharacters.push(l)
-            } else if (characters[ii] === 'm') {
+            } else if (characters[ii] === "m") {
                 cancerCharacters.push(m)
-            } else if (characters[ii] === 'n') {
+            } else if (characters[ii] === "n") {
                 cancerCharacters.push(n)
-            } else if (characters[ii] === 'o') {
+            } else if (characters[ii] === "o") {
                 cancerCharacters.push(o)
-            } else if (characters[ii] === 'p') {
+            } else if (characters[ii] === "p") {
                 cancerCharacters.push(p)
-            } else if (characters[ii] === 'q') {
+            } else if (characters[ii] === "q") {
                 cancerCharacters.push(q)
-            } else if (characters[ii] === 'r') {
+            } else if (characters[ii] === "r") {
                 cancerCharacters.push(r)
-            } else if (characters[ii] === 's') {
+            } else if (characters[ii] === "s") {
                 cancerCharacters.push(s)
-            } else if (characters[ii] === 't') {
+            } else if (characters[ii] === "t") {
                 cancerCharacters.push(t)
-            } else if (characters[ii] === 'u') {
+            } else if (characters[ii] === "u") {
                 cancerCharacters.push(u)
-            } else if (characters[ii] === 'v') {
+            } else if (characters[ii] === "v") {
                 cancerCharacters.push(v)
-            } else if (characters[ii] === 'w') {
+            } else if (characters[ii] === "w") {
                 cancerCharacters.push(w)
-            } else if (characters[ii] === 'x') {
+            } else if (characters[ii] === "x") {
                 cancerCharacters.push(x)
-            } else if (characters[ii] === 'y') {
+            } else if (characters[ii] === "y") {
                 cancerCharacters.push(y)
-            } else if (characters[ii] === 'z') {
+            } else if (characters[ii] === "z") {
                 cancerCharacters.push(z)
-            } else if (characters[ii] === 'A') {
+            } else if (characters[ii] === "A") {
                 cancerCharacters.push(A)
-            } else if (characters[ii] === 'B') {
+            } else if (characters[ii] === "B") {
                 cancerCharacters.push(B)
-            } else if (characters[ii] === 'C') {
+            } else if (characters[ii] === "C") {
                 cancerCharacters.push(C)
-            } else if (characters[ii] === 'D') {
+            } else if (characters[ii] === "D") {
                 cancerCharacters.push(D)
-            } else if (characters[ii] === 'E') {
+            } else if (characters[ii] === "E") {
                 cancerCharacters.push(E)
-            } else if (characters[ii] === 'F') {
+            } else if (characters[ii] === "F") {
                 cancerCharacters.push(F)
-            } else if (characters[ii] === 'G') {
+            } else if (characters[ii] === "G") {
                 cancerCharacters.push(G)
-            } else if (characters[ii] === 'H') {
+            } else if (characters[ii] === "H") {
                 cancerCharacters.push(H)
-            } else if (characters[ii] === 'I') {
+            } else if (characters[ii] === "I") {
                 cancerCharacters.push(I)
-            } else if (characters[ii] === 'J') {
+            } else if (characters[ii] === "J") {
                 cancerCharacters.push(J)
-            } else if (characters[ii] === 'K') {
+            } else if (characters[ii] === "K") {
                 cancerCharacters.push(K)
-            } else if (characters[ii] === 'L') {
+            } else if (characters[ii] === "L") {
                 cancerCharacters.push(L)
-            } else if (characters[ii] === 'M') {
+            } else if (characters[ii] === "M") {
                 cancerCharacters.push(M)
-            } else if (characters[ii] === 'N') {
+            } else if (characters[ii] === "N") {
                 cancerCharacters.push(N)
-            } else if (characters[ii] === 'O') {
+            } else if (characters[ii] === "O") {
                 cancerCharacters.push(O)
-            } else if (characters[ii] === 'P') {
+            } else if (characters[ii] === "P") {
                 cancerCharacters.push(P)
-            } else if (characters[ii] === 'Q') {
+            } else if (characters[ii] === "Q") {
                 cancerCharacters.push(Q)
-            } else if (characters[ii] === 'R') {
+            } else if (characters[ii] === "R") {
                 cancerCharacters.push(R)
-            } else if (characters[ii] === 'S') {
+            } else if (characters[ii] === "S") {
                 cancerCharacters.push(S)
-            } else if (characters[ii] === 'T') {
+            } else if (characters[ii] === "T") {
                 cancerCharacters.push(T)
-            } else if (characters[ii] === 'U') {
+            } else if (characters[ii] === "U") {
                 cancerCharacters.push(U)
-            } else if (characters[ii] === 'V') {
+            } else if (characters[ii] === "V") {
                 cancerCharacters.push(V)
-            } else if (characters[ii] === 'W') {
+            } else if (characters[ii] === "W") {
                 cancerCharacters.push(W)
-            } else if (characters[ii] === 'X') {
+            } else if (characters[ii] === "X") {
                 cancerCharacters.push(X)
-            } else if (characters[ii] === 'Y') {
+            } else if (characters[ii] === "Y") {
                 cancerCharacters.push(Y)
-            } else if (characters[ii] === 'Z') {
+            } else if (characters[ii] === "Z") {
                 cancerCharacters.push(Z)
             } else {
                 cancerCharacters.push(characters[ii]);
             }
         }
-        msg.channel.createMessage(cancerCharacters.join(''));
+        msg.channel.createMessage(cancerCharacters.join(""));
     }
 }

@@ -5,4 +5,4 @@ module.exports = {
     category: "Moderation",
     permission: "manageChannels",
     botPermission: "manageChannels",
-    execute:async (bot, msg, args) => msg.channel.delete() }
+    execute:async (bot, msg, args, commands, logger, c, s) => msg.channel.delete() }

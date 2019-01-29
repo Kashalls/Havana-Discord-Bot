@@ -1,4 +1,4 @@
-const { exec } = require('child_process');
+const { exec } = require("child_process");
 module.exports = {
   command:"exec",
   description: "execute commands from Discord",
@@ -6,8 +6,8 @@ module.exports = {
   category: "Developer",
   permission: "sendMessages",
   botPermission: "sendMessages",
-  execute:async function(bot, msg, args){
-    if (!args.join(" ")) return msg.channel.createMessage('No arguments were given');
+  execute:async (bot, msg, args, commands, logger, c, s) => {
+    if (!args.join(" ")) return msg.channel.createMessage("No arguments were given");
     msg.channel.createMessage(`\`INPUT\`\n\`\`\`ini\n${args.join(" ")}\n\`\`\``);
     exec(args.join(" "), {shell: "/bin/bash"}, (error, stdout, stderr) => {
       if (error) {

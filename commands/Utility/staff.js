@@ -5,7 +5,7 @@ module.exports = {
   category: "Moderation",
   permission: "sendMessages",
   botPermission: "embedLinks",
-  execute:async function(bot, msg, args){
+  execute:async (bot, msg, args, commands, logger, c, s) => {
       let staffOnline = [];
       let staffOffline = [];
       let staffAway = [];

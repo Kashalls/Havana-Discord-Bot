@@ -9,6 +9,7 @@
     "playing": "Type what game you want the bot to be playing on startup",
     "cooldown": cooldown in milliseconds goes here without quotes,
     "massCooldown": mass commands cooldown in milliseconds goes here without quotes,
+    "debugMode": true or false without quotes,
     "adblock": {
         "enabled": true or false without quotes
     },

@@ -5,37 +5,37 @@ module.exports = {
   category: "Developer",
   permission: "sendMessages",
   botPermission: "embedLinks",
-  execute:async function(bot, msg, args, commands, conn){
+  execute:async (bot, msg, args, commands, logger, c) => {
     String.prototype.charLimitSplit = number => {
-      if(typeof number !== 'number') {
+      if(typeof number !== "number") {
           number = parseInt(number);
       }
       let newSplit = [];
       if(this.length > number) {
-          let splitRegex = new RegExp(`.{1,${number}}`, 'g')
+          let splitRegex = new RegExp(`.{1,${number}}`, "g")
           let splitStr = this.match(splitRegex);
-          for(var i = 0; i < splitStr.length; i++){
+          for(let i = 0; i < splitStr.length; i++){
               newSplit.push(splitStr[i])
           }
           return newSplit;
       }
     }
     try{
-      var code = args.join(" ");
-      var evaled = eval(code);
+      let code = args.join(" ");
+      let evaled = eval(code);
       if (typeof evaled !== "string") evaled = require("util").inspect(evaled, { breakLength: Infinity });
       if(evaled.length > 2000) {
         let output = clean(evaled).charLimitSplit(1005);
         
         return msg.channel.createMessage({embed: {
           color:0x36393E,
-          fields: [ { name: 'Input', value: "```JS\n"+code+"```" }, { name: 'Output', value: "```JS\n"+output[0]+" | ... |```" } ]
+          fields: [ { name: "Input", value: "```JS\n"+code+"```" }, { name: "Output", value: "```JS\n"+output[0]+" | ... |```" } ]
         }});
       } else {
         
         return msg.channel.createMessage({embed: {
           color:0x36393E,
-          fields: [ { name: 'Input', value: "```JS\n"+code+"```" }, { name: 'Output', value: "```JS\n"+clean(evaled)+"```" } ]
+          fields: [ { name: "Input", value: "```JS\n"+code+"```" }, { name: "Output", value: "```JS\n"+clean(evaled)+"```" } ]
         }});
       }
     }catch(err){
@@ -44,13 +44,13 @@ module.exports = {
         
         return msg.channel.createMessage({embed: {
           color:0x36393E,
-          fields: [ { name: 'Input', value: "```JS\n"+code+"```" }, { name: 'Error Output', value: "```JS\n"+error[0]+" | ... |```" } ]
+          fields: [ { name: "Input", value: "```JS\n"+code+"```" }, { name: "Error Output", value: "```JS\n"+error[0]+" | ... |```" } ]
         }});
       } else {
         
         return msg.channel.createMessage({embed: {
           color:0x36393E,
-          fields: [ { name: 'Input', value: "```JS\n"+code+"```" }, { name: 'Error Output', value: "```JS\n"+clean(err)+"```" } ]
+          fields: [ { name: "Input", value: "```JS\n"+code+"```" }, { name: "Error Output", value: "```JS\n"+clean(err)+"```" } ]
         }});
       }
     }

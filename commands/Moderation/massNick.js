@@ -5,7 +5,7 @@ module.exports = {
     category: "Moderation",
     permission: "administrator",
     botPermission: "manageNicknames",
-    execute: async (bot, msg, args) => {
+    execute:async (bot, msg, args, commands, logger, c, s) => {
         let interval = 1000;
         let promise = Promise.resolve();
         let newName = args.join(" ");

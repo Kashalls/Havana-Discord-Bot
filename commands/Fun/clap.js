@@ -5,8 +5,8 @@ module.exports = {
     category: "Fun",
     permission: "sendMessages",
     botPermission: "sendMessages",
-    execute: async function(bot, msg, args) {
-        if(!args[0]) return msg.channel.createMessage('You need to type something.')
-        msg.channel.createMessage(args.join(" ").split(' ').join(":clap:"))
+    execute:async (bot, msg, args, commands, logger, c, s) => {
+        if(!args[0]) return msg.channel.createMessage("You need to type something.")
+        msg.channel.createMessage(args.join(" ").split(" ").join(":clap:"))
     }
 }

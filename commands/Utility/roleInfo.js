@@ -5,7 +5,7 @@ module.exports = {
     category: "Utility",
     permission: "sendMessages",
     botPermission: "sendMessages",
-    execute:async function(bot, msg, args, commands){
+    execute:async (bot, msg, args, commands, logger, c, s) => {
         if(!args[0] || args[0] === undefined) {
             return msg.channel.createMessage("You need to insert a role to find info on")
         } else {

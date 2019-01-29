@@ -5,10 +5,10 @@ module.exports = {
     category: "Moderation",
     permission: "manageRoles",
     botPermission: "manageRoles",
-    execute: async function(bot, msg, args) {
+    execute: async (bot, msg, args, commands, logger, c, s) => {
         targetRole = null;
-        if(!args) return msg.channel.createMessage('You did not specify a role to delete. The syntax is ")>roledelete (name role to delete)"');
-        if(!msg.channel.guild.roles.filter(r => r.name === args.join(" "))[0]) return msg.channel.createMessage('Could not find this role');
+        if(!args) return msg.channel.createMessage("You did not specify a role to delete. The syntax is \")>roledelete (name role to delete)\"");
+        if(!msg.channel.guild.roles.filter(r => r.name === args.join(" "))[0]) return msg.channel.createMessage("Could not find this role");
         targetRole = msg.channel.guild.roles.filter(r => r.name === args.join(" "))[0].id;
         return msg.channel.guild.deleteRole(targetRole).then(r => {
             msg.channel.createMessage(`Successfully deleted role \`${args.join(" ")}\``);

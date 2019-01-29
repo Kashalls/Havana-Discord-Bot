@@ -5,11 +5,11 @@ module.exports = {
     category: "Moderation",
     permission: "manageRoles",
     botPermission: "manageRoles",
-    execute: async function(bot, msg, args) {
+    execute: async (bot, msg, args, commands, logger, c, s) => {
         let interval = 750;
         let promise = Promise.resolve();
         let targetRole = msg.channel.guild.roles.filter(r => r.name === args.join(" "))[0];
-        if(!targetRole) msg.channel.createMessage('Could not find that role')
+        if(!targetRole) msg.channel.createMessage("Could not find that role")
         targetRole = targetRole.id
         let bots = msg.channel.guild.members.filter(m => m.bot);
         msg.channel.createMessage(`Now assigning this role to ${bots.length} bots`);

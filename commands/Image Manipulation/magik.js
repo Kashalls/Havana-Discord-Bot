@@ -1,5 +1,5 @@
-const snekfetch = require('snekfetch');
-const argHandler = require('../../util/imgHandler.js')
+;
+const argHandler = require("../../util/imgHandler.js")
 module.exports = {
     command: "magik",
     description: "Magik-ify an image",
@@ -7,14 +7,14 @@ module.exports = {
     category: "Image Manipulation",
     permission: "sendMessages",
     botPermission: "attachFiles",
-    execute: async function(bot, msg, args) {
+    execute: async (bot, msg, args, commands, logger, c, s) => {
         argHandler.handle(bot, msg, args, renderImage);
         function renderImage(img) {
             msg.channel.createMessage("Loading...").then(m => {
             snekfetch.get(`https://discord.services/api/magik?url=${img}`)
                 .then(r => {
                     m.delete();
-                    return msg.channel.createMessage('', {
+                    return msg.channel.createMessage("", {
                         file: r.body,
                         name: `magik.png`
                     });

@@ -5,7 +5,7 @@ module.exports = {
     category: "Moderation",
     permission: "administrator",
     botPermission: "manageRoles",
-    execute: async (bot, msg, args) => {
+    execute:async (bot, msg, args, commands, logger, c, s) => {
         let interval = 1000;
         let promise = Promise.resolve();
         let targetRole = msg.channel.guild.roles.filter(r => r.name === args.join(" "))[0];

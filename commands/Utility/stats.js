@@ -7,7 +7,7 @@ module.exports = {
   category: "Utility",
   permission: "sendMessages",
   botPermission: "embedLinks",
-  execute:async function(bot, msg, args){
+  execute:async (bot, msg, args, commands, logger, c, s) => {
     await msg.channel.createMessage("<a:loading:393670580232257538> Performing speedtests...")
     .then((message)=>{
       let servers = bot.guilds.size,

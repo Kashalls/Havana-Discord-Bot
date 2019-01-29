@@ -1,5 +1,5 @@
 const s = require("snekfetch")
-const c = require("../../config.json")
+
 const argHandler = require("../../util/imgHandler.js")
 module.exports = {
     command:"wrongpic",
@@ -8,10 +8,10 @@ module.exports = {
     category: "Image Manipulation",
     permission: "sendMessages",
     botPermission: "attachFiles",
-    execute:async function(bot, msg, args){
+    execute:async (bot, msg, args, commands, logger, c, s) => {
         argHandler.handle(bot, msg, args, renderImage);
         async function renderImage(img) {
-            s.get(`http://${c.havana}/canvas?url=${img}&effect=wrongpic`).then(r => msg.channel.createMessage('', {file: r.body, name: 'render.jpg'}))
+            s.get(`http://${c.havana}/canvas?url=${img}&effect=wrongpic`).then(r => msg.channel.createMessage("", {file: r.body, name: "render.jpg"}))
         }
     }
 }
