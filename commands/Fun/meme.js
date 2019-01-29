@@ -1,4 +1,4 @@
-const snekfetch = require("snekfetch")
+
 module.exports = {
     command:"meme",
     description: "sends a good meme",
@@ -12,7 +12,7 @@ module.exports = {
             for (i = 0; i < r.body.data.children.length; i++) {
                 if(r.body.data.children[i].data.url) imageMemes.push(r.body.data.children[i].data.url)
             }
-            msg.channel.createMessage({ embed: {color: 0x36393E, author: {name: 'meme', icon_url: msg.author.avatarURL}, image: {url: imageMemes[Math.floor(Math.random() * (imageMemes.length - 1))]}}});
+            msg.channel.createMessage({ embed: {color: 0x36393E, author: {name: "meme", icon_url: msg.author.avatarURL}, image: {url: imageMemes[Math.floor(Math.random() * (imageMemes.length - 1))]}}});
         }).catch(e => msg.channel.createMessage(e))
     }
   }

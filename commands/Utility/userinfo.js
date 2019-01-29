@@ -5,7 +5,7 @@ module.exports = {
     category: "Utility",
     permission: "sendMessages",
     botPermission: "embedLinks",
-    execute:async function(bot, msg, args, commands){
+    execute:async (bot, msg, args, commands, logger, c, s) => {
         if(!args[0] || args[0] === undefined) {
             return userInfo(msg.author.id)
         } else if(msg.mentions.length >= 1) {

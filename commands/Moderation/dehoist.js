@@ -5,7 +5,7 @@ module.exports = {
     category: "Moderation",
     permission: "manageNicknames",
     botPermission: "manageNicknames",
-    execute: async function(bot, msg, args) {
+    execute: async (bot, msg, args, commands, logger, c, s) => {
         msg.channel.createMessage(`Now dehoisting bad hoisters...`)
         let hoistings = /^[a-z1-9]/i
         msg.channel.guild.members.map(m => {

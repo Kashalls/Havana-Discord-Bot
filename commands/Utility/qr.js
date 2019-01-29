@@ -6,7 +6,7 @@ module.exports = {
     category: "Utility",
     permission: "sendMessages",
     botPermission: "sendMessages",
-    execute: async function(bot, msg, args) {
+    execute: async (bot, msg, args, commands, logger, c, s) => {
         if(!args[0]) return msg.channel.createMessage("You must type something in to turn into a QR Code")
         let qrText = args.join(" ")
         let qrBuffer = await qr.imageSync(qrText, { type: "png" });

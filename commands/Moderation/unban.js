@@ -5,9 +5,9 @@ module.exports = {
     category: "Moderation",
     permission: "banMembers",
     botPermission: "banMembers",
-    execute: async function(bot, msg, args) {
-        if(!args[0]) return msg.channel.createMessage('You need to choose somebody to ban.')
-        if(isNaN(args[0]) || args[0].length > 18 || args[0].length < 16) return msg.channel.createMessage('Please input a valid ID')
+    execute: async (bot, msg, args, commands, logger, c, s) => {
+        if(!args[0]) return msg.channel.createMessage("You need to choose somebody to ban.")
+        if(isNaN(args[0]) || args[0].length > 18 || args[0].length < 16) return msg.channel.createMessage("Please input a valid ID")
         let reason
         args[1] ? reason = args.slice(1).join(" ") : reason = "No reason provided";
         unbanUser(args[0], reason)

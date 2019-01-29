@@ -5,7 +5,7 @@ module.exports = {
     category: "Moderation",
     permission: "manageChannels",
     botPermission: "manageChannels",
-    execute: async function(bot, msg, args) {
+    execute: async (bot, msg, args, commands, logger, c, s) => {
         if(!msg.channel.guild) return
         let channel = msg.channel;
         let guild = msg.channel.guild;

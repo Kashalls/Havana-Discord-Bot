@@ -1,5 +1,4 @@
-const snekfetch = require('snekfetch');
-const c = require("../../config.json")
+
 module.exports = {
   command:"help",
   description: "Get Help",
@@ -61,7 +60,7 @@ module.exports = {
     if(args[0] !== undefined) {
       if(args[0].toLowerCase() === "markdown") {
         let data = `## Moderation\n#### \`${moderation.join("`, `")}\`\n\n## Utility\n#### \`${utility.join("`, `")}\`\n\n## Fun\n#### \`${fun.join("`, `")}\`\n\n## Image Manipulation\n#### \`${img.join("`, `")}\`\n\n## Developer\n#### \`${developer.join("`, `")}\`\n\n`
-        snekfetch.post('http://thiccbit.ch/api/havanabin')
+        snekfetch.post("http://thiccbit.ch/api/havanabin")
         .send({text: data})
         .then(r => {
             msg.channel.createMessage(`help.md uploaded! Here is the link: ${r.body.pasted}`)

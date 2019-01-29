@@ -1,6 +1,6 @@
-const faceapp = require('faceapp'),
-      superagent = require('superagent');
-      const argHandler = require('../../util/imgHandler.js')
+const faceapp = require("faceapp"),
+      superagent = require("superagent");
+      const argHandler = require("../../util/imgHandler.js")
 module.exports = {
   command:"hitman",
   description: "Make somebody look like a hitman",
@@ -12,9 +12,9 @@ module.exports = {
     argHandler.handle(bot, msg, args, renderImage);
     async function renderImage(img) {
       let res = await superagent.get(img)
-      await faceapp.process(res.body, 'hitman').then(hitmanPic => {
-        return msg.channel.createMessage('', {file: hitmanPic, name: 'hitman.png'});
-      }).catch(e => msg.channel.createMessage('Couldn\'t detect any faces'));
+      await faceapp.process(res.body, "hitman").then(hitmanPic => {
+        return msg.channel.createMessage("", {file: hitmanPic, name: "hitman.png"});
+      }).catch(e => msg.channel.createMessage("Couldn' detect any faces"));
     }
   }
 }

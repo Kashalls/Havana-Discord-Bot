@@ -10,7 +10,7 @@ module.exports = {
     }
   }
 function binary(string) {
-    return string.split('').map(char => {
+    return string.split("").map(char => {
         return char.charCodeAt(0).toString(2);
     }).join(" ");
 }

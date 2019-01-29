@@ -8,6 +8,6 @@ module.exports = {
     execute:async (bot, msg, args, commands, logger, c, s) => {
         let robohash = `https://robohash.org/${args[0]}`
         if(!args[0]) robohash = `https://robohash.org/${msg.author.id}`
-        await msg.channel.createMessage({ embed: {color: 0x36393E, author: {name: 'A Unique Robot!', icon_url: msg.author.avatarURL}, image: {url: robohash}}});
+        await msg.channel.createMessage({ embed: {color: 0x36393E, author: {name: "A Unique Robot!", icon_url: msg.author.avatarURL}, image: {url: robohash}}});
     }
   }

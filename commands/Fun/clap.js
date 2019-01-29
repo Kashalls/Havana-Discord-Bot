@@ -6,7 +6,7 @@ module.exports = {
     permission: "sendMessages",
     botPermission: "sendMessages",
     execute:async (bot, msg, args, commands, logger, c, s) => {
-        if(!args[0]) return msg.channel.createMessage('You need to type something.')
-        msg.channel.createMessage(args.join(" ").split(' ').join(":clap:"))
+        if(!args[0]) return msg.channel.createMessage("You need to type something.")
+        msg.channel.createMessage(args.join(" ").split(" ").join(":clap:"))
     }
 }

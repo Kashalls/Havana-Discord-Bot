@@ -1,5 +1,5 @@
 const s = require("snekfetch")
-const c = require("../../config.json")
+
 const argHandler = require("../../util/imgHandler.js")
 module.exports = {
     command:"gaben",
@@ -11,7 +11,7 @@ module.exports = {
     execute:async (bot, msg, args, commands, logger, c, s) => {
         argHandler.handle(bot, msg, args, renderImage);
         async function renderImage(img) {
-            s.get(`http://${c.havana}/canvas?url=${img}&effect=gaben`).then(r => msg.channel.createMessage('', {file: r.body, name: 'render.jpg'}))
+            s.get(`http://${c.havana}/canvas?url=${img}&effect=gaben`).then(r => msg.channel.createMessage("", {file: r.body, name: "render.jpg"}))
         }
     }
 }

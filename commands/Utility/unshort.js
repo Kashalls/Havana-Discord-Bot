@@ -1,4 +1,3 @@
-const s = require("snekfetch");
 module.exports = {
     command:"unshort",
     description: "unshorten a url",
@@ -6,7 +5,7 @@ module.exports = {
     category: "Utility",
     permission: "sendMessages",
     botPermission: "embedLinks",
-    execute:async (bot, msg, args) => {
+    execute:async (bot, msg, args, commands, logger, c, s) => {
         if(!args[0] || !args[0].match(/\bhttps?:\/\/\S+/i)) return msg.channel.createMessage("You did not supply a valid url")
         let urls = [];
         let unshort = url => {
@@ -15,10 +14,10 @@ module.exports = {
                 let metaRefresh = /<meta http-equiv="refresh" *?\S+ *(\/)?>/i;
                 if(r.text.match(metaRefresh)) {
                     let refreshTag = r.text.match(metaRefresh)[0];
-                    let metaURL = /url= *?('|") *?(.*?)('|") *?/i;
+                    let metaURL = /url= *?("|") *?(.*?)("|") *?/i;
                     if(refreshTag.match(metaURL)) {
                         let rawURL = refreshTag.match(metaURL)[0];
-                        let extractedURL = /\bhttp(s)?:\/\/\S+.*(?=('|"))/i;
+                        let extractedURL = /\bhttp(s)?:\/\/\S+.*(?=("|"))/i;
                         if(rawURL.match(extractedURL)) {
                             let originalURL = rawURL.match(extractedURL)[0];
                             urls.push(originalURL);

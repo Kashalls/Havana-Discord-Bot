@@ -7,7 +7,7 @@ module.exports = {
     botPermission: "sendMessages",
     execute:async (bot, msg, args, commands, logger, c, s) => {
 
-        let characters = args.join(' ').split('');
+        let characters = args.join(" ").split("");
         let cancerCharacters = [];
 
         let a = "ἀἁἂἃἄἅἆἇἈἉἊἋἌἍἎἏⒶⓐ⒜AaẠạẢảḀḁÂÃǍǎẤấẦầẨẩȂȃẪẫẬậÀÁẮắẰằẲẳẴẵẶặĀāĄąǞȀȁÅǺǻÄäǟǠǡâáåãàẚȦȧȺÅⱥÆæǼǢǣⱯꜲꜳꜸꜺꜹꜻªΛΔ"
@@ -38,65 +38,65 @@ module.exports = {
         let z = "Ⓩⓩ⒵ZzẐẑẒẓẔẕŹźŻżŽžȤȥⱫⱬƵƶɀℨℤ"
 
 
-        for (var ii = 0, len = characters.length; ii < len; ii++) {
-            if (characters[ii].toLowerCase() === 'a') {
+        for (let ii = 0, len = characters.length; ii < len; ii++) {
+            if (characters[ii].toLowerCase() === "a") {
                 cancerCharacters.push(a[Math.floor(Math.random() * a.length) + 1])
-            } else if (characters[ii].toLowerCase() === 'b') {
+            } else if (characters[ii].toLowerCase() === "b") {
                 cancerCharacters.push(b[Math.floor(Math.random() * b.length) + 1])
-            } else if (characters[ii].toLowerCase() === 'c') {
+            } else if (characters[ii].toLowerCase() === "c") {
                 cancerCharacters.push(c[Math.floor(Math.random() * c.length) + 1])
-            } else if (characters[ii].toLowerCase() === 'd') {
+            } else if (characters[ii].toLowerCase() === "d") {
                 cancerCharacters.push(d[Math.floor(Math.random() * d.length) + 1])
-            } else if (characters[ii].toLowerCase() === 'e') {
+            } else if (characters[ii].toLowerCase() === "e") {
                 cancerCharacters.push(e[Math.floor(Math.random() * e.length) + 1])
-            } else if (characters[ii].toLowerCase() === 'f') {
+            } else if (characters[ii].toLowerCase() === "f") {
                 cancerCharacters.push(f[Math.floor(Math.random() * f.length) + 1])
-            } else if (characters[ii].toLowerCase() === 'g') {
+            } else if (characters[ii].toLowerCase() === "g") {
                 cancerCharacters.push(g[Math.floor(Math.random() * g.length) + 1])
-            } else if (characters[ii].toLowerCase() === 'h') {
+            } else if (characters[ii].toLowerCase() === "h") {
                 cancerCharacters.push(h[Math.floor(Math.random() * h.length) + 1])
-            } else if (characters[ii].toLowerCase() === 'i') {
+            } else if (characters[ii].toLowerCase() === "i") {
                 cancerCharacters.push(i[Math.floor(Math.random() * i.length) + 1])
-            } else if (characters[ii].toLowerCase() === 'j') {
+            } else if (characters[ii].toLowerCase() === "j") {
                 cancerCharacters.push(j[Math.floor(Math.random() * j.length) + 1])
-            } else if (characters[ii].toLowerCase() === 'k') {
+            } else if (characters[ii].toLowerCase() === "k") {
                 cancerCharacters.push(k[Math.floor(Math.random() * k.length) + 1])
-            } else if (characters[ii].toLowerCase() === 'l') {
+            } else if (characters[ii].toLowerCase() === "l") {
                 cancerCharacters.push(l[Math.floor(Math.random() * l.length) + 1])
-            } else if (characters[ii].toLowerCase() === 'm') {
+            } else if (characters[ii].toLowerCase() === "m") {
                 cancerCharacters.push(m[Math.floor(Math.random() * m.length) + 1])
-            } else if (characters[ii].toLowerCase() === 'n') {
+            } else if (characters[ii].toLowerCase() === "n") {
                 cancerCharacters.push(n[Math.floor(Math.random() * n.length) + 1])
-            } else if (characters[ii].toLowerCase() === 'o') {
+            } else if (characters[ii].toLowerCase() === "o") {
                 cancerCharacters.push(o[Math.floor(Math.random() * o.length) + 1])
-            } else if (characters[ii].toLowerCase() === 'p') {
+            } else if (characters[ii].toLowerCase() === "p") {
                 cancerCharacters.push(p[Math.floor(Math.random() * p.length) + 1])
-            } else if (characters[ii].toLowerCase() === 'q') {
+            } else if (characters[ii].toLowerCase() === "q") {
                 cancerCharacters.push(q[Math.floor(Math.random() * q.length) + 1])
-            } else if (characters[ii].toLowerCase() === 'r') {
+            } else if (characters[ii].toLowerCase() === "r") {
                 cancerCharacters.push(r[Math.floor(Math.random() * r.length) + 1])
-            } else if (characters[ii].toLowerCase() === 's') {
+            } else if (characters[ii].toLowerCase() === "s") {
                 cancerCharacters.push(s[Math.floor(Math.random() * s.length) + 1])
-            } else if (characters[ii].toLowerCase() === 't') {
+            } else if (characters[ii].toLowerCase() === "t") {
                 cancerCharacters.push(t[Math.floor(Math.random() * t.length) + 1])
-            } else if (characters[ii].toLowerCase() === 'u') {
+            } else if (characters[ii].toLowerCase() === "u") {
                 cancerCharacters.push(u[Math.floor(Math.random() * u.length) + 1])
-            } else if (characters[ii].toLowerCase() === 'v') {
+            } else if (characters[ii].toLowerCase() === "v") {
                 cancerCharacters.push(v[Math.floor(Math.random() * v.length) + 1])
-            } else if (characters[ii].toLowerCase() === 'w') {
+            } else if (characters[ii].toLowerCase() === "w") {
                 cancerCharacters.push(w[Math.floor(Math.random() * w.length) + 1])
-            } else if (characters[ii].toLowerCase() === 'x') {
+            } else if (characters[ii].toLowerCase() === "x") {
                 cancerCharacters.push(x[Math.floor(Math.random() * x.length) + 1])
-            } else if (characters[ii].toLowerCase() === 'y') {
+            } else if (characters[ii].toLowerCase() === "y") {
                 cancerCharacters.push(y[Math.floor(Math.random() * y.length) + 1])
-            } else if (characters[ii].toLowerCase() === 'z') {
+            } else if (characters[ii].toLowerCase() === "z") {
                 cancerCharacters.push(z[Math.floor(Math.random() * z.length) + 1])
             } else {
                 cancerCharacters.push(characters[ii]);
             }
         }
 
-        msg.channel.createMessage(cancerCharacters.join(''));
+        msg.channel.createMessage(cancerCharacters.join(""));
 
     }
 }

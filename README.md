@@ -25,11 +25,11 @@ Then extract the zipped bot files into a folder somewhere. After this is done, t
 ### Making a bot account
 To get started with the bot, you must first create a bot account through Discord. To do this, you're going to head [here](https://discordapp.com/developers/applications/me) and click on `New App`
 
-Once you've made the application, you'll need to make a bot account for it. To do this, just click on `Create a Bot User`
+Once you"ve made the application, you"ll need to make a bot account for it. To do this, just click on `Create a Bot User`
 
 ![Create Bot Account](https://i.imgur.com/rsVbxSc.png)
 
-Under the `Bot` section, you'll be able to decide whether or not you want your bot to be public or not, but what we need from this section at the moment is the token. Click `Reveal token` and copy the token it displays
+Under the `Bot` section, you"ll be able to decide whether or not you want your bot to be public or not, but what we need from this section at the moment is the token. Click `Reveal token` and copy the token it displays
 
 ![Bot Token](https://i.imgur.com/wSScIC5.png)
 
@@ -37,7 +37,7 @@ Now that we have the token, we can start with our configuration file
 
 ### config.json
 
-Open up the file `config.json`, you'll see something like this
+Open up the file `config.json`, you"ll see something like this
 ```json
 {
     "token":"Bot Token Goes Here",
@@ -84,7 +84,7 @@ Open up the file `config.json`, you'll see something like this
 }
 ```
 ##### Token
- * Paste your token in the `token` section, and ensure it's wrapped in quotes
+ * Paste your token in the `token` section, and ensure it"s wrapped in quotes
  * Do not give your token to any user, even if they say they need it. This will give them full access to the bot account.
  * You can regenerate your token if it gets leaked, via the bot page where you created your bot
 ##### Prefix
@@ -94,16 +94,16 @@ Open up the file `config.json`, you'll see something like this
  * If you're not hosting your own Havana image processor, then just use the default url: api.qoilo.com
  * api.qoilo.com is my instance of Havana Image Processor
 ##### Steam Token
- * This is the API key for Steam used for the bot's SteamID command
+ * This is the API key for Steam used for the bot"s SteamID command
  * You can get an API key [here](https://steamcommunity.com/login/home/?goto=%2Fdev%2Fapikey)
 ##### Guild Stat Channel
  * This asks for a channel ID. The channel you input will be used to log guild joins and leaves
 ##### Devs
  * If you are the only bot owner, then just paste your user ID in like this `["205912295837138944"]`
- * If there is more than one owner, then put a comma after your ID, and put their's, like so `["205912295837138944", "403854965191344139"]`
+ * If there is more than one owner, then put a comma after your ID, and put their"s, like so `["205912295837138944", "403854965191344139"]`
  * If you do not know how to get your Discord user ID, [this](https://support.discordapp.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID-) will help you out
 ##### Playing Status
- * This is what your bot will display it's playing, wrap this in quotes as well, just like all the ones before
+ * This is what your bot will display it"s playing, wrap this in quotes as well, just like all the ones before
 ##### Cooldown
  * This is the cooldown that the bot will use before a user can run another command.
  * This is in milliseconds
@@ -133,7 +133,7 @@ Open up the file `config.json`, you'll see something like this
    * Each channel in the array will have all clickable links blocked
 ##### Poll Channel
  * Type in `true` without quotes, to enable this
- * Channel inputted will have all it's messages have a ✅ and a ❌ added to the message as reactions for users to vote on
+ * Channel inputted will have all it"s messages have a ✅ and a ❌ added to the message as reactions for users to vote on
 ##### Mod-Logs (In-progress)
  * Type in `true` without quotes, to enable this
  * Channel inputted will be the channel used for logging things like message edits and deletes
@@ -144,11 +144,11 @@ Open up the file `config.json`, you'll see something like this
 
 ### Starting Up The Bot
 
-Now that the bot is all nice and configured, it's time to boot it up. To do this, go in the folder that has all the bot files, *hold shift, then right click while holding shift*. You should see an option that says `open command window here` or `open powershell window here`. Click that option
+Now that the bot is all nice and configured, it"s time to boot it up. To do this, go in the folder that has all the bot files, *hold shift, then right click while holding shift*. You should see an option that says `open command window here` or `open powershell window here`. Click that option
 
 ![Context Menu Example](https://i.imgur.com/7r6cgxb.png)
 
-Once the window is open, run the command `npm install`. This command will install all of the bot's required modules
+Once the window is open, run the command `npm install`. This command will install all of the bot"s required modules
 
 ![npm install](https://i.imgur.com/TD0ZxGN.png)
 
@@ -160,11 +160,11 @@ To start the bot, just run `node app.js` like so
 
 Congratulations, you now have a custom instance of the bot!
 
-If you find a bug, issue, or have any concerns or suggestions, we'd be glad to hear them on [our Discord server](https://discord.gg/C9reUPF)
+If you find a bug, issue, or have any concerns or suggestions, we"d be glad to hear them on [our Discord server](https://discord.gg/C9reUPF)
 
 ### Inviting The Bot
 
-Once your bot is up and running, it's time to invite your bot. You can do so by going to [this website](https://discordapi.com/permissions.html) and generating an invite for your bot. You can find your bot's client ID on the page where you created the bot.
+Once your bot is up and running, it"s time to invite your bot. You can do so by going to [this website](https://discordapi.com/permissions.html) and generating an invite for your bot. You can find your bot"s client ID on the page where you created the bot.
 
 Once invited, your bot will have a command called `invite`, which other people can use to invite your bot, without having to generate their own invites.
 

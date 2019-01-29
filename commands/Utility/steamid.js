@@ -1,5 +1,4 @@
-const tzcfg = require("../../config.json"),
-      steam = require("steamidconvert")(tzcfg.steamToken);
+
 module.exports = {
     command: "steamid",
     description: "Get a steamid from somebody's profile",
@@ -7,7 +6,8 @@ module.exports = {
     category: "Utility",
     permission: "sendMessages",
     botPermission: "embedLinks",
-    execute: async function(bot, msg, args) {
+    execute: async (bot, msg, args, commands, logger, c, s) => {
+        let steam = require("steamidconvert")(c.steamToken);
         if(args[0].startsWith("http://steamcommunity.com/id/")) {
             let cleanedURL = args[0].replace("http://steamcommunity.com/id/", "");
             if(cleanedURL.endsWith("/")) {

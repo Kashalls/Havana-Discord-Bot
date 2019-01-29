@@ -1,4 +1,4 @@
-const fs = require('fs');
+const fs = require("fs");
 module.exports = {
   command:"guilds",
   description: "Lists all guilds that the bot is on with some information in a json format",
@@ -17,12 +17,12 @@ module.exports = {
 },`).join("\n");
     fs.writeFile(`${msg.id}${bot.uptime}GUILDINFO.json`, JSON.stringify(guildInfo), err => {
       if(err){
-        console.log(err);
-        return msg.channel.createMessage('Error while processing guild information.');
+        logger.error(err);
+        return msg.channel.createMessage("Error while processing guild information.");
       }else{
         msg.channel.createMessage(`Guild Info file made! Reporting info on ${bot.guilds.size} guilds!`);
         let fileContent = `{\n${guildInfo}\n}`.replace("\\", "/");
-        return msg.channel.createMessage('', {name: "GuildInfo.json", file: fileContent});
+        return msg.channel.createMessage("", {name: "GuildInfo.json", file: fileContent});
       }
     });
   }

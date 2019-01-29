@@ -1,6 +1,6 @@
-const faceapp = require('faceapp'),
-superagent = require('superagent');
-const argHandler = require('../../util/imgHandler.js')
+const faceapp = require("faceapp"),
+superagent = require("superagent");
+const argHandler = require("../../util/imgHandler.js")
 module.exports = {
 command: "hipster",
 description: "Give somebody a beard",
@@ -12,12 +12,12 @@ execute:async (bot, msg, args, commands, logger, c, s) => {
     argHandler.handle(bot, msg, args, renderImage);
     async function renderImage(img) {
         let res = await superagent.get(img)
-        await faceapp.process(res.body, 'hipster').then(facePic => {
-            msg.channel.createMessage('', {
+        await faceapp.process(res.body, "hipster").then(facePic => {
+            msg.channel.createMessage("", {
                 file: facePic,
-                name: 'face.png'
+                name: "face.png"
             });
-        }).catch(e => msg.channel.createMessage('Couldn\'t detect any faces'));
+        }).catch(e => msg.channel.createMessage("Couldn' detect any faces"));
     }
   }
 }

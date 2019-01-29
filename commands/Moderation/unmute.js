@@ -5,18 +5,18 @@ module.exports = {
     category: "Moderation",
     permission: "manageMessages",
     botPermission: "manageChannels",
-    execute: async function(bot, msg, args) {
-        if(!args[0]) return msg.channel.createMessage('You need to give somebody to unmute');
+    execute: async (bot, msg, args, commands, logger, c, s) => {
+        if(!args[0]) return msg.channel.createMessage("You need to give somebody to unmute");
         if(msg.mentions.length >= 1) {
             let target = msg.mentions[0].id;
             muteUser(target)
         } else if(msg.channel.guild.members.filter(m => m.id === args[0])[0]) {
             muteUser(args[0])
         } else {
-            msg.channel.createMessage('No user found to unmute')
+            msg.channel.createMessage("No user found to unmute")
         }
         async function muteUser(id) {
-            let tc = msg.channel.guild.channels.filter(c => c.permissionsOf(bot.user.id).has('manageChannels') && c.permissionsOf(id).has('readMessages') && !c.permissionsOf(id).has('sendMessages') && c.type === 0);
+            let tc = msg.channel.guild.channels.filter(c => c.permissionsOf(bot.user.id).has("manageChannels") && c.permissionsOf(id).has("readMessages") && !c.permissionsOf(id).has("sendMessages") && c.type === 0);
             if(!tc[0]) return;
             let interval = 300;
             let promise = Promise.resolve();

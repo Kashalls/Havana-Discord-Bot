@@ -19,16 +19,6 @@ const bg = {
     white: "\x1b[47m%s\x1b[0m"
 }
 module.exports = {
-    discordError: async error => {
-        console.log(bg.blue, "Discord")
-        console.log(fg.blue, error)
-        console.trace("\x1b[34mDiscord Error\x1b[0m")
-    },
-    telegramError: async error => {
-        console.log(bg.magenta, "Telegram")
-        console.log(fg.magenta, error)
-        console.trace("\x1b[35mTelegram Error\x1b[0m")
-    },
     uncaughtError: async error => {
         console.log(bg.red, "Uncaught Error")
         console.log(fg.red, error)
@@ -40,5 +30,8 @@ module.exports = {
         console.log(bg.red, "Error")
         console.log(fg.red, error)
         console.trace("\x1b[31mError\x1b[0m")
+    },
+    verbose: async log => {
+        console.log(fg.yellow, log)
     }
 }

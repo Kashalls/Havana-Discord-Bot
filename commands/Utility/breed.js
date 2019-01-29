@@ -6,7 +6,7 @@ module.exports = {
   category: "Utility",
   permission: "sendMessages",
   botPermission: "embedLinks",
-  execute:async function(bot, msg, args){
+  execute:async (bot, msg, args, commands, logger, c, s) => {
     if(!args[0]) return msg.channel.createMessage("Please input a photo url")
     wd(args[0])
     .then(doggyData => {

@@ -1,4 +1,4 @@
-const snekfetch = require('snekfetch');
+;
 module.exports = {
     command:"clyde",
     description: "Make Clyde say something",
@@ -8,11 +8,11 @@ module.exports = {
     botPermission: "manageWebhooks",
     execute:async (bot, msg, args, commands, logger, c, s) => {
         if(!args[0] || args[0] === undefined) {
-            return msg.channel.createMessage('Nothing for Clyde to say');
+            return msg.channel.createMessage("Nothing for Clyde to say");
         } else {
             snekfetch.get("https://discordapp.com/assets/f78426a064bc9dd24847519259bc42af.png")
             .then(r => {
-                let pfp = `data:${r.headers['content-type']};base64,${r.body.toString('base64')}`;
+                let pfp = `data:${r.headers["content-type"]};base64,${r.body.toString("base64")}`;
                 msg.channel.createWebhook({name: "CIyde", avatar: pfp}).then(w => {
                     let url = `https://canary.discordapp.com/api/webhooks/${w.id}/${w.token}`;
                     snekfetch.post(url)
@@ -23,7 +23,7 @@ module.exports = {
                     })
                     .catch(e => {
                         bot.deleteWebhook(w.id, w.token)
-                        console.log(e);
+                        logger.error(e);
                     })
                 })
             })

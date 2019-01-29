@@ -5,13 +5,13 @@ module.exports = {
     category: "Moderation",
     permission: "manageMessages",
     botPermission: "manageMessages",
-    execute: async function(bot, msg, args) {
+    execute: async (bot, msg, args, commands, logger, c, s) => {
         if(!args[0] || args[0] === undefined || parseInt(args[0]) > 100 || parseInt(args[0]) < 3 || isNaN(parseInt(args[0]))) {
-            return msg.channel.createMessage('Please input a number between 3 and 100');
+            return msg.channel.createMessage("Please input a number between 3 and 100");
         }
         let msgNum = parseInt(args[0]);
         msgNum >= 100 ? msgNum = 99 : msgNum = msgNum 
-        if(!args[0]) return msg.channel.createMessage('You need to at least enter a number of messages to purge.')
+        if(!args[0]) return msg.channel.createMessage("You need to at least enter a number of messages to purge.")
         if(args[1].toLowerCase() === "bots") {
             function botFilter(msg) {
                 if(msg.author.bot) return true;
