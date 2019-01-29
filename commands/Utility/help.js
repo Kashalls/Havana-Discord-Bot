@@ -12,7 +12,6 @@ module.exports = {
       let fun = [];
       let utility = [];
       let img = [];
-      let nsfw = [];
       for (i = 0; i < commands.length; i++) {
           if (commands[i].category === "Moderation") {
               moderation.push(commands[i].command);
@@ -28,9 +27,6 @@ module.exports = {
           }
           if (commands[i].category === "Image Manipulation") {
               img.push(commands[i].command);
-          }
-          if (commands[i].category === "NSFW") {
-              nsfw.push(commands[i].command);
           }
       }
       if (!args[0] || args[0] === undefined) {
@@ -54,20 +50,16 @@ module.exports = {
                           value: `\`${img.join("`, `")}\``
                       },
                       {
-                          name: "» NSFW 🚫",
-                          value: `\`${msg.channel.nsfw ? nsfw.join("`, `") : "`You cannot see nsfw commands unless you're in an nsfw channel!`"}\``
-                      },
-                      {
                           name: "» Developer 🔒",
                           value: `\`${developer.join("`, `")}\``
                       },
                       {
                           name: "» Our Discord Server 🏰",
-                          value: "https://discord.gg/5avnG8a"
+                          value: "https://discord.gg/C9reUPF"
                       },
                       {
-                          name: "» Our Website 🔗",
-                          value: "https://qoilo.com"
+                          name: "» Download This Bot 🔗",
+                          value: "https://github.com/TannerReynolds/Havana-Discord-Bot"
                       },
                   ],
                   author: {
@@ -75,25 +67,13 @@ module.exports = {
                       name: `${msg.author.username}#${msg.author.discriminator}`
                   },
                   footer: {
-                      text: `${commands.length} commands loaded // "${prefix[0]}help [cmd name]" for info on a specific cmd`
+                      text: `${commands.length} commands loaded // "${prefix}help [cmd name]" for info on a specific cmd`
                   }
               }
           })
 
       }
       if (args[0] !== undefined) {
-          if (args[0].toLowerCase() === "markdown") {
-              let data = `## Moderation\n#### \`${moderation.join("`, `")}\`\n\n## Utility\n#### \`${utility.join("`, `")}\`\n\n## Fun\n#### \`${fun.join("`, `")}\`\n\n## Image Manipulation\n#### \`${img.join("`, `")}\`\n\n## Developer\n#### \`${developer.join("`, `")}\`\n\n`
-              s.post("http://thiccbit.ch/api/havanabin")
-                  .send({
-                      text: data
-                  })
-                  .then(r => {
-                      msg.channel.createMessage(`help.md uploaded! Here is the link: ${r.body.pasted}`)
-                  }).catch(e => {
-                      msg.channel.createMessage(e.text);
-                  });
-          }
           let commandName = args[0];
           let syntax = null;
           let description = null;
@@ -119,7 +99,7 @@ module.exports = {
                       },
                       {
                           name: "Syntax",
-                          value: syntax.replace(/\)>/g, prefix[0])
+                          value: syntax.replace(/\)>/g, prefix)
                       },
                       {
                           name: "Category",
