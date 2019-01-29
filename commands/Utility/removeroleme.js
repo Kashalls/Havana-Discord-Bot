@@ -5,7 +5,7 @@ module.exports = {
     category: "Utility",
     permission: "sendMessages",
     botPermission: "manageRoles",
-    execute: async (bot, msg, args, commands, conn) => {
+    execute: async (bot, msg, args, commands, logger, c, s) => {
         if (!args[0] || args[0].toLowerCase() === "--list") {
             let rolemes;
             await conn.table("roleme").get(msg.channel.guild.id).run().then(entry => {

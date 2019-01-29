@@ -5,7 +5,7 @@ module.exports = {
     category: "Utility",
     permission: "sendMessages",
     botPermission: "sendMessages",
-    execute:async (bot, msg, args, commands, conn) => {
+    execute:async (bot, msg, args, commands, logger, c, s) => {
         msg.channel.createMessage(`\`\`\`\n${binary(args.join(" "))}\n\`\`\``)
     }
   }

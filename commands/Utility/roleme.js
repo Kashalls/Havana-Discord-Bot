@@ -5,7 +5,7 @@ module.exports = {
     category: "Utility",
     permission: "sendMessages",
     botPermission: "manageRoles",
-    execute: async (bot, msg, args, commands) => {
+    execute: async (bot, msg, args, commands, logger, c, s) => {
         if (!args[0] || args[0].toLowerCase() === "--list") {
             let rolemes;
             if (c.roleme.enabled === true) {
