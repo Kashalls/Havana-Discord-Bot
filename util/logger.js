@@ -20,18 +20,26 @@ const bg = {
 }
 module.exports = {
     uncaughtError: async error => {
-        console.log(bg.red, "Uncaught Error")
+        console.log(bg.red, `[${timestamp()}] | Uncaught Error`)
         console.log(fg.red, error)
     },
     success: async log => {
-        console.log(fg.green, log)
+        console.log(fg.green, `[${timestamp()}] | ${log}`)
     },
     error: async error => {
-        console.log(bg.red, "Error")
+        console.log(bg.red, `[${timestamp()}] | Error`)
         console.log(fg.red, error)
         console.trace("\x1b[31mError\x1b[0m")
     },
+    warning: async warning => {
+        console.log(fg.magenta, `[${timestamp()}] | ${warning}`)
+    },
     verbose: async log => {
-        console.log(fg.yellow, log)
+        console.log(fg.blue, `[${timestamp()}] | ${log}`)
     }
 }
+
+function timestamp() {
+    let time = new Date();
+    return time.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true })
+  }
