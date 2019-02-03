@@ -101,6 +101,16 @@ bot.on("guildMemberRemove", async (guild, member) => {
     }
 })
 
+bot.on("messageReactionAdd", async (msg, emoji, adder) => {
+    if(c.downVoteDeletes.enabled === true) {
+        if(c.downVoteDeletes.channels.includes(msg.channel.id)) {
+            msg.channel.getMessageReaction(msg.id, "❌").then(r => {
+                if (r.length >= c.downVoteDeletes.limit) msg.delete()
+            })
+        }
+    }
+})
+
 bot.on("messageDelete", async msg => {
     if (c.debugMode) logger.verbose("Message Deleted")
     if (c.modLogs.enabled === true) {

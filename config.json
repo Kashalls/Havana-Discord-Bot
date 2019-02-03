@@ -40,5 +40,10 @@
     "welcomer": {
         "enabled": true or false without quotes,
         "channel": "channel ID"
+    },
+    "downVoteDeletes": {
+        "enabled": true or false without quotes,
+        "channels": ["Channel IDs here"],
+        "limit": number without quotes
     }
 }
