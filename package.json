@@ -21,7 +21,6 @@
     "image-download": "^1.1.0",
     "image-size": "^0.6.2",
     "image-to-ascii": "^3.0.11",
-    "node-mscs-face": "^0.1.1",
     "os-toolbox": "^0.2.9",
     "qr-image": "^3.2.0",
     "recursive-readdir": "^2.2.2",
